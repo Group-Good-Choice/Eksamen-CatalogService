@@ -1,0 +1,48 @@
+@page "/api/products/create"
+@model CatalogService.Pages.CreateProductModel
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuC0mLASJC" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width" />
+    <title>Create Product</title>
+</head>
+<body>
+    <div style="width: 800px; margin: auto">
+        <h1>Create Product</h1>
+        <hr />
+
+        @if (Model.Success)
+        {
+            <div class="alert alert-success">Product created successfully!</div>
+        }
+
+        <form method="post">
+            @Html.AntiForgeryToken()
+            <div class="mb-3">
+                <label class="form-label">Name</label>
+                <input type="text" class="form-control" name="Name" />
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Brand</label>
+                <input type="text" class="form-control" name="Brand" />
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Category</label>
+                <input type="text" class="form-control" name="Category" />
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Price</label>
+                <input type="number" step="0.01" class="form-control" name="Price" />
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Description</label>
+                <input type="text" class="form-control" name="Description" />
+            </div>
+            <button type="submit" class="btn btn-primary">Create</button>
+            <a href="/api/products/list" class="btn btn-secondary">Back to list</a>
+        </form>
+        <hr />
+    </div>
+</body>
+</html>
